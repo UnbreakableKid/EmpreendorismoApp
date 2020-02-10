@@ -68,6 +68,8 @@ public class PhoneActivity extends AppCompatActivity {
                 } else {
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mAuthCredentials, phone);
                     signInWithPhoneAuthCredential(credential);
+                    Intent intent = new Intent(PhoneActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
 
 
@@ -82,7 +84,6 @@ public class PhoneActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-
                             FirebaseUser user = task.getResult().getUser();
                             // ...
                         } else {

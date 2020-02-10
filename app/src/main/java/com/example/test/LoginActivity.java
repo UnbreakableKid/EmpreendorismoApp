@@ -46,6 +46,12 @@ public class LoginActivity extends AppCompatActivity {
 
     String phone;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.signOut();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,7 +173,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("AuthCredentials", s);
                                 startActivity(intent);
                             }
-                        }, 10
+                        }, 10000
                 );
 
             }
